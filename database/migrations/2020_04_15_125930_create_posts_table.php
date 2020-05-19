@@ -15,18 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_owner')->unsigned();
-            $table->bigInteger('id_finder')->unsigned();
             $table->string('title');
             $table->string('description');
-            $table->string('post_owner_name');
-            $table->string('post_owner_lastname');
-            $table->string('post_owner_address');
-            $table->string('post_owner_email')->unique();
-            $table->string('phone');
-            $table->string('type_of_object');
-            $table->foreign('id_owner')->references('id')->on('owner');
-            $table->foreign('id_finder')->references('id')->on('finder');
+            $table->string('posttype')->nullable();
+            $table->string('photo');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

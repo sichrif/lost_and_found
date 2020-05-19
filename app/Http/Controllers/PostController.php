@@ -14,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+       
+        $posts = Post::all();
+        return view('posts.show',compact('posts'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -35,7 +37,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validationRules());
+
+        $post = new Post;
+
+        $post->user_id = Auth::id();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->posttype = $request->posttype;
+        $post->photo = $request->photo;
+
+        $post->save();
     }
 
     /**

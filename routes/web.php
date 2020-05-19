@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::resource('/','PostController'); 
+Route::get('/create','PostController@create')->middleware('auth');
+Route::post('/store','PostController@store')->middleware('auth');
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
