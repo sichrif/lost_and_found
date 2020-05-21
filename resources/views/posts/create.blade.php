@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                      <label for="booking_date">Title</label>
+                      <label for="title">Title</label>
                         <input type="text" name="title"  id="title" class="form-control" placeholder="choose a title for your post" >
                       @error('title')<div class="text-danger">{{ $message }}</div> @enderror
                     </div>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="row">
-                <button type="submit" class="btn btn-outline-primary btn-block">Post Now !</button>
+                <button href="/" type="submit" class="btn btn-outline-primary btn-block">Post Now !</button>
             </div>
         </form>
     </fieldset>

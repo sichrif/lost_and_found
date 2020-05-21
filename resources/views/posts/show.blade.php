@@ -46,8 +46,8 @@
                         <p class="card-text">{{$post->description}}</p>
                         <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                        <a href= '{ route("posts.show") }}' class="btn btn-sm btn-outline-secondary" >View</a>
-                        <a href= '{ route("posts.edit") }}' class="btn btn-sm btn-outline-secondary" >Edit</a>
+                        <a href= "/show_more/{{$post->id}}" class="btn btn-sm btn-outline-secondary" >View</a>
+                        <a href= "/{{$post->id}}/edit" class="btn btn-sm btn-outline-secondary" >Edit</a>
                             
                         </div>
                         <small class="text-muted"> {{$post->post_owner_name}} </small>

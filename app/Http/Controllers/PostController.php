@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostController extends Controller
 {
@@ -14,9 +16,10 @@ class PostController extends Controller
      */
     public function index()
     {
-       
+      
         $posts = Post::all();
-        return view('posts.show',compact('posts'));
+        return view('posts.show',compact('posts'));  
+       
     }
 
     /**
@@ -37,7 +40,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate($this->validationRules());
+        //$request->validate($this->validationRules());
 
         $post = new Post;
 
@@ -48,7 +51,11 @@ class PostController extends Controller
         $post->photo = $request->photo;
 
         $post->save();
-    }
+        
+        return redirect('/');
+        
+        
+    } 
 
     /**
      * Display the specified resource.
@@ -58,7 +65,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        //dd($post->id);
+        return view('posts.show_more',compact('post'));
     }
 
     /**
@@ -69,7 +77,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit',compact('post'));
     }
 
     /**
@@ -81,7 +89,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        //$validatedData = $request->validate($this->validationRules());
+        //dd($post);
+       /* $posts= Post::find($post);*/
+        
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->posttype = $request->posttype;
+        $post->photo = $request->photo;
+
+        $post->update();
+
+        return redirect('/show');
     }
 
     /**
@@ -92,6 +111,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect('/show');
+
     }
 }

@@ -15,10 +15,19 @@
     return view('welcome');
 });*/
 
-Route::resource('/','PostController'); 
+Route::get('/show','PostController@index'); 
 Route::get('/create','PostController@create')->middleware('auth');
+
 Route::post('/store','PostController@store')->middleware('auth');
+
+Route::get('/show_more/{post}','PostController@show')->middleware('auth');
+
+Route::get('/{post}/edit','PostController@edit')->middleware('auth');
+
+//Route::put('/update/{post}','PostController@update')->middleware('auth
+Route::patch('/update/{post}','PostController@update');
+Route::delete('/delete/{post}','PostController@destroy')->middleware('auth');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
