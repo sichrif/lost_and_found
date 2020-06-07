@@ -25,7 +25,7 @@ Route::get('/show_more/{post}','PostController@show')->middleware('auth');
 Route::get('/{post}/edit','PostController@edit')->middleware('auth');
 
 //Route::put('/update/{post}','PostController@update')->middleware('auth
-Route::patch('/update/{post}','PostController@update');
+Route::patch('/update/{post}','PostController@update')->middleware('auth');
 Route::delete('/delete/{post}','PostController@destroy')->middleware('auth');
 
 Auth::routes();

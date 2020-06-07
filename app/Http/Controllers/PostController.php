@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+use Image;
 
 
 class PostController extends Controller
@@ -40,7 +42,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //$request->validate($this->validationRules());
+        $request->validate($this->validationRules());
+
+        $image_file = $request->photo;
+
+        $photo = Image::make($image_file);
+   
+        Response::make($photo->encode('jpeg'));
 
         $post = new Post;
 
@@ -52,7 +60,8 @@ class PostController extends Controller
 
         $post->save();
         
-        return redirect('/');
+        return redirect('/show');
+        //dd($request);
         
         
     } 
@@ -89,16 +98,16 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //$validatedData = $request->validate($this->validationRules());
+        $validatedData = $request->validate($this->validationRules());
         //dd($post);
        /* $posts= Post::find($post);*/
         
-        $post->title = $request->title;
+        /*$post->title = $request->title;
         $post->description = $request->description;
         $post->posttype = $request->posttype;
-        $post->photo = $request->photo;
+        $post->photo = $request->photo;*/
 
-        $post->update();
+        $post->update($validatedData);
 
         return redirect('/show');
     }
@@ -114,5 +123,27 @@ class PostController extends Controller
         $post->delete();
         return redirect('/show');
 
+    }
+    private function validationRules()
+    {
+        return [
+            'title' => 'required',
+            'description' => 'required',
+            'posttype' => 'required',
+            'photo' => 'required',
+        ];
+    }
+
+    function fetch_image($image_id)
+    {
+     $image = Images::findOrFail($image_id);
+
+     $image_file = Image::make($image->photo);
+
+     $response = Response::make($image_file->encode('jpeg'));
+
+     $response->header('Content-Type', 'image/jpeg');
+
+     return $response;
     }
 }
