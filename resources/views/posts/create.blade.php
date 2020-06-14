@@ -1,30 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 
 
 @section('content')
 <div class="container">
     <fieldset>
-        <legend>Add New Post</legend>
+        <legend><h3>Add New Post</h3></legend>
         <form action="/store" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col">
+                <div class="col-sm-4">
                     <div class="form-group">
                       <label for="title">Title</label>
                         <input type="text" name="title"  id="title" class="form-control" placeholder="choose a title for your post" >
                       @error('title')<div class="text-danger">{{ $message }}</div> @enderror
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                    
-                      <label for="description">Description</label>
-                      <input type="text" name="description"  id="description" class="form-control" >
-                      @error('description')<div class="text-danger">{{ $message }}</div> @enderror
-                    </div>
-                </div>
-                <div class="col">
+                
+                <div class="col-sm-4">
                     <div class="form-group">
                       <label for="posttype">Post type</label>
                       <select class="form-control show-tick"  name="posttype"  id="posttype">
@@ -35,7 +28,9 @@
                       
                     </div>
                 </div>
-                <div class="col">
+
+               
+                <div class="col-sm-4">
                     <div class="form-group">
                       <label for="photo">Photo</label>
                       <input type="file" name="photo"  id="photo" class="form-control" >
@@ -44,6 +39,21 @@
                        
                     </div>
                 </div>
+            
+                <div class="form-line col-sm-12">
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea rows="4" class="form-control no-resize" placeholder="Please type what you want..." name="description"  id="description" class="form-control"></textarea>
+                      @error('description')<div class="text-danger">{{ $message }}</div> @enderror
+                    </div>
+                </div>
+            
+
+
+                
+                    
+
+                
             </div>
             <div class="row">
                 <button href="/" type="submit" class="btn btn-outline-primary btn-block">Post Now !</button>

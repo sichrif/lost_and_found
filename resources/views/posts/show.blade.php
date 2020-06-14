@@ -1,24 +1,34 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 @section('title', 'All Your Posts')
 @section('content')
 
 
+@if (session('deletePost'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('deletePost') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
 @foreach($posts as $post)
 <div class="row">
 
-    <div class="col-lg-6 col-md-8">
+
+
+    <div class="col-lg-8 col-md-5">
         <div class="card">
             <div class="blogitem mb-2S">
                 <div class="blogitem-image">
                     <a href="#"><img src="{{asset('assets/images/image-gallery/5.jpg')}}" alt="blog image"></a>
-                    <span class="blogitem-date">{{$post->created_at}}</span>
+                    <span class="blogitem-date">{{$post->created_at->format('d/m/Y')}}</span>
                 </div>
                 <div class="blogitem-content">
                 <div class="container">
                     <div class="blogitem-header">
                         <div class="blogitem-meta">
-                            <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">{{$post->title}}</a></span>
-                            <span><i class="zmdi zmdi-comments"></i><a href="#">Comments(3)</a></span>
+                            <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">Takwa</a></span>
+                            <span><i class="zmdi zmdi-comments"></i><a href="#">{{ $post->posttype }}</a></span>
                         </div>
                         <div class="blogitem-share">
                             <ul class="list-unstyled mb-0">
@@ -29,7 +39,7 @@
                             </ul>
                         </div>
                     </div>
-                    <h5><a href="#">{{$post->posttype}}</a></h5>
+                    <h5>{{$post->title}}</h5>
                     <p>{{$post->description}}</p>
                     
                     <div class="btn-group">

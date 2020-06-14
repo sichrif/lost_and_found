@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-      
+        //$users = Auth::user();
         $posts = Post::all();
         return view('posts.show',compact('posts'));  
        
@@ -121,7 +121,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('/show');
+        return redirect('/show')->with('deletePost', 'Post deleted successfully !');
 
     }
     private function validationRules()

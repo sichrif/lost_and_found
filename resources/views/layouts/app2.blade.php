@@ -29,7 +29,7 @@
     <div id="app">
         
         
-        
+        @include('layouts.leftsidebar')
         <section class="content">
             
             <div class="container-fluid">                
