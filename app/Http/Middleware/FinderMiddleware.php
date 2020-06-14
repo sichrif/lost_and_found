@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class CitoyenMiddleware
+class FinderMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,11 @@ class CitoyenMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->usertype == 'citoyen'){
+        if(Auth::user()->usertype == 'Finder'){
             return $next($request);
 
         }else{
-            return redirect('/home')->with('status','you"re not allowed to Citoyen dashboard');
+            return redirect('/home')->with('status','you"re not allowed to Finder dashboard');
         }
 
     }

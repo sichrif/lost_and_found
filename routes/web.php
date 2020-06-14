@@ -38,15 +38,10 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
 
 });
 ////////////////
-Route::group(['middleware' => ['auth', 'citoyen']],function(){
-    Route::get('/citoyen', function(){
-        return view('citoyens.citoyens');
+Route::group(['middleware' => ['auth', 'Finder']],function(){
+    Route::get('/Finder', function(){
+        return view('Finders.Finders');
     });
     });
     //////////////////
-    Route::group(['middleware' => ['auth', 'association']],function(){
-        Route::get('/association', function(){
-            return view('association.association');
-        });
-
-        });
+   

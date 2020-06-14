@@ -32,11 +32,9 @@ class RegisterController extends Controller
     public function redirectTo(){
         if(Auth::user()->usertype == 'admin'){
                 return 'dashboard';
-        }elseif(Auth::user()->usertype == 'citoyen'){
-            return 'citoyens';
-    }elseif(Auth::user()->usertype == 'association'){
-        return 'association';
-}
+        }elseif(Auth::user()->usertype == 'Finder'){
+            return 'Finder';
+    }
     }
     /**
      * Create a new controller instance.
