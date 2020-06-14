@@ -1,11 +1,12 @@
-@extends('layouts.app2')
+@extends('layouts.master')
+@section('title', 'Add new post')
 
 
 
 @section('content')
 <div class="container">
     <fieldset>
-        <legend><h3>Add New Post</h3></legend>
+ 
         <form action="/store" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -20,7 +21,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                       <label for="posttype">Post type</label>
-                      <select class="form-control show-tick"  name="posttype"  id="posttype">
+                      <select class="form-control "  name="posttype"  id="posttype">
                       <option>Lost propriety</option>
                         <option>Something found</option>
                         @error('posttype')<div class="text-danger">{{ $message }}</div> @enderror

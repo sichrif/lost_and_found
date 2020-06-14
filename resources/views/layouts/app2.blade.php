@@ -32,7 +32,7 @@
         @include('layouts.leftsidebar')
         <section class="content">
             
-            <div class="container-fluid">                
+            <div class="container-fluid" style="background-color:#e0dede">                
                 @yield('content')
             </div>
         </section>

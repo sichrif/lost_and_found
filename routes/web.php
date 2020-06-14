@@ -15,6 +15,8 @@
     return view('welcome');
 });*/
 
+/****************POSTS ROUTES ********/
+
 Route::get('/show','PostController@index')->name('show'); 
 Route::get('/create','PostController@create')->middleware('auth');
 
@@ -29,6 +31,39 @@ Route::patch('/update/{post}','PostController@update')->middleware('auth');
 Route::delete('/delete/{post}','PostController@destroy')->middleware('auth');
 
 Auth::routes();
+
+
+
+/******USER ROUTES ********/
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'AppController@home')->name('home');
+    Route::get('user/calendar', 'UserController@calendar')->name('user.calendar');
+    Route::get('user/calendar', 'UserController@contactList')->name('user.contact-list');
+
+    Route::resource('/user', 'UserController');
+    
+    Route::resource('/home', 'UserController');
+    Route::get('/{users}/edit_user', 'UserController@edit');
+   Route::patch('/update_user/{users}', 'UserController@update');
+
+
+   /******** Pages Navbar ********/
+Route::get('pages', function () { return redirect('pages/blank-page'); });
+Route::get('pages/blank', 'PagesController@blank')->name('pages.blank');
+Route::get('pages/gallery', 'PagesController@gallery')->name('pages.gallery');
+Route::get('pages/invoices1', 'PagesController@invoices1')->name('pages.invoices1');
+Route::get('pages/invoices2', 'PagesController@invoices2')->name('pages.invoices2');
+Route::get('pages/pricing', 'PagesController@pricing')->name('pages.pricing');
+Route::get('pages/profile', 'PagesController@profile')->name('pages.profile');
+Route::get('pages/search', 'PagesController@search')->name('pages.search');
+Route::get('pages/timeline', 'PagesController@timeline')->name('pages.timeline');
+    
+   
+    
+});
+
 /*Route::get('login', [
     'as' => 'login',
     'uses' => 'Auth\LoginController@showLoginForm'

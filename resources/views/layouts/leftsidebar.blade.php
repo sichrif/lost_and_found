@@ -1,9 +1,9 @@
 
 <!-- Left Sidebar -->
 
-<aside id="leftsidebar" class="sidebar">
+<aside id="leftsidebar" class="sidebar" >
     
-    <div class="menu">
+    <div class="menu" >
         <ul class="list">
             <li>
             
@@ -37,7 +37,7 @@
                
             </li>            
             <li class="{{ Request::segment(1) === 'dashboard' ? 'active open' : null }}"><a href="/show"><i class="zmdi zmdi-home"></i><span>My Posts</span></a></li>
-            <li class="{{ Request::segment(1) === 'my-profile' ? 'active open' : null }}"><a href="#"><i class="zmdi zmdi-account"></i><span>My Profile</span></a></li>
+            <li class="{{ Request::segment(1) === 'my-profile' ? 'active open' : null }}"><a href="/user"><i class="zmdi zmdi-account"></i><span>My Profile</span></a></li>
             <li class="{{ Request::segment(1) === 'app' ? 'active open' : null }}">
                 <a href="/create" ><i class="zmdi zmdi-plus"></i> <span>Add New Post</span></a>
                 

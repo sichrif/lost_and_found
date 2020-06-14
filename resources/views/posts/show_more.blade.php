@@ -1,13 +1,14 @@
-@extends('layouts.app2')
+@extends('layouts.master')
+@section('title', 'More details about your post')
 
 @section('content')
 <div class="container">
-<h3>More Details</h3>
+
 <br>
 <br>
 
 
-<div class="col-lg-8 col-md-12">
+<div class="col-lg-12 col-md-12">
         <div class="card">
             <div class="blogitem mb-2S">
                 <div class="blogitem-image">

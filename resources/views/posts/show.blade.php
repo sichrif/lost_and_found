@@ -1,5 +1,5 @@
-@extends('layouts.app2')
-@section('title', 'All Your Posts')
+@extends('layouts.master')
+@section('title', 'All your posts')
 @section('content')
 
 
@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="blogitem-header">
                         <div class="blogitem-meta">
-                            <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">Takwa</a></span>
+                            <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">{{ Auth::user()->name }}</a></span>
                             <span><i class="zmdi zmdi-comments"></i><a href="#">{{ $post->posttype }}</a></span>
                         </div>
                         <div class="blogitem-share">
