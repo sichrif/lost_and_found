@@ -19,20 +19,22 @@
 
 Route::get('/show','PostController@index')->name('show'); 
 Route::get('/create','PostController@create')->middleware('auth');
-
 Route::post('/store','PostController@store')->middleware('auth');
-
 Route::get('/show_more/{post}','PostController@show')->middleware('auth');
-
 Route::get('/{post}/edit','PostController@edit')->middleware('auth');
-
 //Route::put('/update/{post}','PostController@update')->middleware('auth
 Route::patch('/update/{post}','PostController@update')->middleware('auth');
 Route::delete('/delete/{post}','PostController@destroy')->middleware('auth');
 
 Auth::routes();
 
+/************aziz ***********/
 
+Route::view('about', 'about');
+Route::view('contact', 'contact');
+Route::get('/lost','LostController@index'); 
+
+Route::get('/found','FoundController@index');
 
 /******USER ROUTES ********/
 

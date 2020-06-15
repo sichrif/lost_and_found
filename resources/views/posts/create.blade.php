@@ -21,13 +21,14 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                       <label for="posttype">Post type</label>
-                      <select class="form-control "  name="posttype"  id="posttype">
+                      <select class="form-control show-tick ms select2"  data-placeholder="Select" placeholder="Post_Type" name="posttype"  id="posttype">
                       <option>Lost propriety</option>
                         <option>Something found</option>
                         @error('posttype')<div class="text-danger">{{ $message }}</div> @enderror
                       </select>  
                       
                     </div>
+                    
                 </div>
 
                

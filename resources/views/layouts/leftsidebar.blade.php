@@ -8,7 +8,7 @@
             <li>
             
                 <div class="user-info">
-                    <div class="image"><a href="#"><img src="../assets/images/profile_av.jpg" alt="User"></a></div>
+                    <div class="image"><a href="'/'"></a></div>
                     <div class="detail">
                         <div class="row">
                             <div class="col-sm">

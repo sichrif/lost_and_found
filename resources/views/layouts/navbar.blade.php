@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md shadow mb-5 fixed" style="background-color:#84a9ac; "  >
+<nav class="navbar navbar-expand-md " style="background-color:#84a9ac; "  >
 
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -10,25 +10,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                            <a href="#" class="nav-link">First</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Second</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Third</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bookings</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown09">
-                            <a class="dropdown-item" href="#">Tttttt</a>
-                            <a class="dropdown-item" href="#">bbbbbbbb</a>
-                            <a class="dropdown-item" href="#">aaaaa</a>
-                            </div>
-                        </li>
-                    </ul>
+                   
+
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -48,11 +32,11 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div >
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                               <i class="zmdi zmdi-open-in-new"></i>
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

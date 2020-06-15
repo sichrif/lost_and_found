@@ -34,7 +34,7 @@
                     <h5>{{$post->title}}</h5>
                     <p>{{$post->description}}</p>
                     
-                    <div class="btn-group">
+                  <div class="btn-group">
                     <a href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirmDeleteModal">
                     <i class="zmdi zmdi-delete"></i> Delete</a>
 
@@ -42,7 +42,7 @@
                           <i class="zmdi zmdi-mail-reply-all"></i> Go back</a>
 
                          
-                        </div>
+                  </div>
                 </div>
                 </div>
             </div>

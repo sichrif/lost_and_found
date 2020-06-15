@@ -54,7 +54,7 @@
                                 </div>                                    
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Adredss" name="address"value="{{ old('address') ?? $users->address}}" id="address" >
+                                        <input type="text" class="form-control" placeholder="Addredss" name="address"value="{{ old('address') ?? $users->address}}" id="address" >
                                         @error('address') <div class="text-danger" >{{ $message }}</div> @enderror
                                     </div>
                                 </div>
