@@ -18,10 +18,10 @@
 
 Route::view('about', 'about');
 Route::view('contact', 'contact');
-Route::view('lost','lost');
-Route::view('found','found');
-/****************POSTS ROUTES ********/
 
+/****************POSTS ROUTES ********/
+Route::get('/lost', 'LostController@index');
+Route::get('/found', 'FoundController@index');
 Route::get('/show','PostController@index')->name('show'); 
 Route::get('/create','PostController@create')->middleware('auth');
 
@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
   Route::get('Aregister','Admin\DashboardController@registred');
   Route::get('/edit/{id}','Admin\DashboardController@registrededit');
   Route::delete('/delete/{id}','Admin\DashboardController@registredelete');
-  Route::get('/create','Admin\DashboardController@createe');
+  Route::get('/createe','Admin\DashboardController@createe');
 
   Route::put('/register-update/{id}','Admin\DashboardController@registreupdate');
  

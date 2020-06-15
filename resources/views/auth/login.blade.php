@@ -1,4 +1,4 @@
-@extends('layout.front.authentification.loginlayout')
+@extends('layouts.front.authentification.loginlayout')
 @section('title', 'Login')
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/plugins/fullcalendar/fullcalendar.min.css')}}" />
@@ -65,4 +65,22 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                    <div class="signin_with mt-3">
+                            <p class="mb-0">or Sign Up using</p>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round facebook"><i class="zmdi zmdi-facebook"></i></button>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round twitter"><i class="zmdi zmdi-twitter"></i></button>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round google"><i class="zmdi zmdi-google-plus"></i></button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
